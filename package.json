@@ -1,0 +1,24 @@
+{
+  "name": "crud_de_usuarios",
+  "version": "1.0.0",
+  "description": "criação de uma api RESTful utilizando como framework o express.",
+  "homepage": "https://github.com/isabelesouza-cmyk/crud_de_usuarios0#readme",
+  "bugs": {
+    "url": "https://github.com/isabelesouza-cmyk/crud_de_usuarios0/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/isabelesouza-cmyk/crud_de_usuarios0.git"
+  },
+  "license": "ISC",
+  "author": "Isabele",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "express": "^5.1.0",
+    "sqlite3": "^5.1.7"
+  }
+}
