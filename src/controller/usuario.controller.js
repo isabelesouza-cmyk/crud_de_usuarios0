@@ -1,4 +1,3 @@
-import {response} from "express";
 import usuarioService from "../services/usuario.services.js";
 
 async function createUsuarioController(request, response){
