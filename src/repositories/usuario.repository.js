@@ -21,7 +21,7 @@ function createUsuarioRepository(novoUsuario){
         } = novoUsuario;
 
         db.run(
-            `INSERT INTO produto(login, email, senha, foto)
+            `INSERT INTO usuario(login, email, senha, foto)
             VALUES(?,?,?,?)`,
             [login,email,senha,foto],
             (error) => {

@@ -4,7 +4,7 @@ async function createUsuarioController(request, response){
     const novoUsuario = request.body;
 
     try {
-        const usuario = await usuarioService.createUsuarioService(novoUsuario);
+        const usuario = await usuarioService.createUsuarioServices(novoUsuario);
         response.status(201).send({usuario});
     } catch(error) {
         response.status(400).send(error.message);
@@ -13,7 +13,7 @@ async function createUsuarioController(request, response){
 
 async function findAllUsuarioController(request, response) {
     try {
-        const usuario = await usuarioService.findAllUsuarioService();
+        const usuario = await usuarioService.findAllUsuarioServices();
         response.status(200).send({usuario});
     } catch(error) {
         response.status(404).send(error.message);
@@ -25,7 +25,7 @@ async function findUsuarioByIdController(request, response) {
     const {id} = request.params;
 
     try {
-        const usuario = await usuarioService.findUsuarioByIdService(id);
+        const usuario = await usuarioService.findUsuarioByIdServices(id);
         response.status(200).send({usuario});
     } catch(error) {
         response.status(404).send(error.message);
@@ -38,7 +38,7 @@ async function updateUsuarioController(request, response) {
     const novoUsuario = request.body;
 
     try {
-        const usuario = await usuarioService.updateUsuarioService(id, novoUsuario);
+        const usuario = await usuarioService.updateUsuarioServices(id, novoUsuario);
         response.status(201).send({usuario});
     } catch(error) {
         response.status(400).send(error.message);
