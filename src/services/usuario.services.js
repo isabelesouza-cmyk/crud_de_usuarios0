@@ -1,12 +1,7 @@
 import usuarioRepository from "../repositories/usuario.repository.js";
 
 async function createUsuarioServices(novoUsuario) {
-    const usuario = await usuarioRepository.createUsuarioRepository
-
-    if (!usuario) {
-        throw new Error("Erro ao salvar criar novo usuário!");
-    }
-
+    const usuario = await usuarioRepository.createUsuarioRepository(novoUsuario);
     return usuario;
 }
 
@@ -32,7 +27,7 @@ async function updateUsuarioServices(id, novoUsuario) {
         throw new Error("Usuário não encontrado!");
     }
 
-    const usuarioAtualizado = await usuarioRepository(id, novoProduto);
+    const usuarioAtualizado = await usuarioRepository.updateUsuarioRepository(id, novoUsuario);
 
     if (!usuarioAtualizado) {
         throw new Error("Erro ao atualizar o usuário!");
