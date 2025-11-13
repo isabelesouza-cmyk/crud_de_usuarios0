@@ -1,10 +1,10 @@
-import usuarioService from "../services/usuario.services.js";
+import usuarioServices from "../services/usuario.services.js";
 
 async function createUsuarioController(request, response){
     const novoUsuario = request.body;
 
     try {
-        const usuario = await usuarioService.createUsuarioServices(novoUsuario);
+        const usuario = await usuarioServices.createUsuarioServices(novoUsuario);
         response.status(200).send({usuario});
     } catch(error) {
         response.status(400).send(error.message);
@@ -13,7 +13,7 @@ async function createUsuarioController(request, response){
 
 async function findAllUsuarioController(request, response) {
     try {
-        const usuario = await usuarioService.findAllUsuarioServices();
+        const usuario = await usuarioServices.findAllUsuarioServices();
         response.status(200).send({usuario});
     } catch(error) {
         response.status(404).send(error.message);
@@ -25,7 +25,7 @@ async function findUsuarioByIdController(request, response) {
     const {id} = request.params;
 
     try {
-        const usuario = await usuarioService.findUsuarioByIdServices(id);
+        const usuario = await usuarioServices.findUsuarioByIdServices(id);
         response.status(200).send({usuario});
     } catch(error) {
         response.status(404).send(error.message);
@@ -38,7 +38,7 @@ async function updateUsuarioController(request, response) {
     const novoUsuario = request.body;
 
     try {
-        const usuario = await usuarioService.updateUsuarioServices(id, novoUsuario);
+        const usuario = await usuarioServices.updateUsuarioServices(id, novoUsuario);
         response.status(201).send({usuario});
     } catch(error) {
         response.status(400).send(error.message);
