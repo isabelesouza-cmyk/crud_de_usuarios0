@@ -3,6 +3,8 @@ import {Router} from "express";
 
 const usuarioRouter = Router();
 
-usuarioRouter.post("/usuario", usuarioController.createUsuarioController);
+usuarioRouter.post("/usuario"), usuarioController.createUsuarioController;
+usuarioRouter.get("/usuario"), usuarioController.findAllUsuarioController;
+usuarioRouter.get("/usuario"), usuarioController.findUsuarioByIdController
 
 export default usuarioRouter;
