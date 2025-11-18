@@ -110,6 +110,5 @@ function updateUsuarioRepository(id, usuario) {
 export default {
     createUsuarioRepository,
     findAllUsuarioRepository,
-    findUsuarioByIdRepository,
-    updateUsuarioRepository
+    findUsuarioByIdRepository
 }

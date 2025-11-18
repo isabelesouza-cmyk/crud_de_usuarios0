@@ -49,6 +49,5 @@ async function updateUsuarioController(request, response) {
 export default {
     createUsuarioController,
     findAllUsuarioController,
-    findUsuarioByIdController,
-    updateUsuarioController
+    findUsuarioByIdController
 }

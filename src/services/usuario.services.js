@@ -39,6 +39,5 @@ async function updateUsuarioServices(id, novoUsuario) {
 export default {
     createUsuarioServices,
     findAllUsuarioServices,
-    findUsuarioByIdServices,
-    updateUsuarioServices
+    findUsuarioByIdServices
 }
