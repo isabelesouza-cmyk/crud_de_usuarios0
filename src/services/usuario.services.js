@@ -20,22 +20,6 @@ async function findUsuarioByIdServices(id) {
     return usuario;
 }
 
-async function updateUsuarioServices(id, novoUsuario) {
-    const usuario = await usuarioRepository.findUsuarioByIdRepository(id);
-
-    if (!usuario) {
-        throw new Error("Usuário não encontrado!");
-    }
-
-    const usuarioAtualizado = await usuarioRepository.updateUsuarioRepository(id, novoUsuario);
-
-    if (!usuarioAtualizado) {
-        throw new Error("Erro ao atualizar o usuário!");
-    }
-    
-    return usuarioAtualizado;
-}
-
 export default {
     createUsuarioServices,
     findAllUsuarioServices,

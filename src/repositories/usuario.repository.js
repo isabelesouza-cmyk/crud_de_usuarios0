@@ -75,38 +75,6 @@ function findUsuarioByIdRepository(id) {
     });
 }
 
-function updateUsuarioRepository(id, usuario) {
-    return new Promise((resolve, reject) => {
-
-        const {
-            login,
-            email,
-            senha,
-            foto
-        } = usuario;
-
-        db.run(
-            `UPDATE usuario
-            SET login = ?,      
-                email = ?,
-                senha = ?,
-                foto  = ?
-            WHERE id = ?`,
-            [login, email, senha, foto, id],
-            (error) => {
-                if (error) {
-                    reject(error);
-                } else {
-                    resolve({
-                        id,
-                        ...usuario
-                    });
-                }
-            }
-        )
-    });
-}
-
 export default {
     createUsuarioRepository,
     findAllUsuarioRepository,
