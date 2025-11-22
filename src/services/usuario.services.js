@@ -2,6 +2,11 @@ import usuarioRepository from "../repositories/usuario.repository.js";
 
 async function createUsuarioServices(novoUsuario) {
     const usuario = await usuarioRepository.createUsuarioRepository(novoUsuario);
+
+    if (!usuario) {
+        throw new Error ("Erro ao criar novo usuário!")
+    }
+
     return usuario;
 }
 
@@ -20,8 +25,25 @@ async function findUsuarioByIdServices(id) {
     return usuario;
 }
 
+async function updateUsuarioService(id, novoUsuario) {
+    const usuario = await usuarioRepository.findUsuarioByIdRepository(id);
+
+    if (!usuario) {
+        throw new Error("Usuário não encontrado!");
+    }
+
+    const usuarioAtualizado = await usuarioRepository.updateUsuarioRepository(id, novoUsuario);
+
+    if (!usuarioAtualizado) {
+        throw new Error("Erro ao atualizar o usuário!");
+    }
+    
+    return usuarioAtualizado;
+}
+
 export default {
     createUsuarioServices,
     findAllUsuarioServices,
-    findUsuarioByIdServices
+    findUsuarioByIdServices,
+    updateUsuarioService
 }

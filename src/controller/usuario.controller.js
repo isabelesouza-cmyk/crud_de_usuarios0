@@ -32,8 +32,23 @@ async function findUsuarioByIdController(request, response) {
     }
 }
 
+async function updateUsuarioController(request, response) {
+    
+    const {id} = request.params;
+    const novoUsuario = request.body;
+
+    try {
+        const usuario = await usuarioService.updateUsuarioService(id, novoUsuario);
+        response.status(201).send({usuario});
+    } catch(error) {
+        response.status(400).send(error.message);
+    }
+
+}
+
 export default {
     createUsuarioController,
     findAllUsuarioController,
-    findUsuarioByIdController
+    findUsuarioByIdController,
+    updateUsuarioController
 }
