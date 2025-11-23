@@ -39,7 +39,7 @@ async function updateUsuarioController(request, response) {
 
     try {
         const usuario = await usuarioServices.updateUsuarioServices(id, novoUsuario);
-        response.status(201).send({usuario});
+        response.status(200).send({usuario});
     } catch(error) {
         response.status(400).send(error.message);
     }
