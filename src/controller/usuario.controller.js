@@ -38,7 +38,7 @@ async function updateUsuarioController(request, response) {
     const novoUsuario = request.body;
 
     try {
-        const usuario = await usuarioServices.updateUsuarioService(id, novoUsuario);
+        const usuario = await usuarioServices.updateUsuarioServices(id, novoUsuario);
         response.status(201).send({usuario});
     } catch(error) {
         response.status(400).send(error.message);
@@ -46,9 +46,22 @@ async function updateUsuarioController(request, response) {
 
 }
 
+async function deleteUsuarioController(request, response) {
+    
+    const {id} = request.params;
+
+    try {
+        const retorno = await produtoService.deleteUsuarioServices(id);
+        response.status(200).send({retorno});
+    } catch(error) {
+        response.status(400).send(error.message);
+    }
+}
+
 export default {
     createUsuarioController,
     findAllUsuarioController,
     findUsuarioByIdController,
-    updateUsuarioController
+    updateUsuarioController,
+    deleteUsuarioController
 }

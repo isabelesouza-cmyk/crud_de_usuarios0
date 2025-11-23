@@ -107,9 +107,29 @@ function updateUsuarioRepository(id, usuario) {
     });
 }
 
+function deleteUsuarioRepository(id) {
+    return new Promise((resolve, reject) => {
+        db.run(
+            `DELETE FROM usuario
+            WHERE id = ?`,
+            [id],
+            (error) => {
+                if (error) {
+                    reject(error);
+                } else {
+                    resolve({
+                        message: "Usuário excluído com sucesso!"
+                    });
+                }
+            }
+        );
+    });
+}
+
 export default {
     createUsuarioRepository,
     findAllUsuarioRepository,
     findUsuarioByIdRepository,
-    updateUsuarioRepository
+    updateUsuarioRepository,
+    deleteUsuarioRepository
 }

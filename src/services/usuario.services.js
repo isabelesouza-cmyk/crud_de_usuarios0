@@ -25,7 +25,7 @@ async function findUsuarioByIdServices(id) {
     return usuario;
 }
 
-async function updateUsuarioService(id, novoUsuario) {
+async function updateUsuarioServices(id, novoUsuario) {
     const usuario = await usuarioRepository.findUsuarioByIdRepository(id);
 
     if (!usuario) {
@@ -41,9 +41,26 @@ async function updateUsuarioService(id, novoUsuario) {
     return usuarioAtualizado;
 }
 
+async function deleteUsuarioServices(id) {
+    const produto = await produtoRepository.findUsuarioByIdRepository(id);
+
+    if (!produto) {
+        throw new Error("Produto não encontrado!");
+    }
+
+    const mensagemRetorno =  await produtoRepository.deleteUsuarioRepository(id);
+
+    if (!mensagemRetorno) {
+        throw new Error("Erro ao deletar produto!");
+    }
+
+    return mensagemRetorno;
+}
+
 export default {
     createUsuarioServices,
     findAllUsuarioServices,
     findUsuarioByIdServices,
-    updateUsuarioService
+    updateUsuarioServices,
+    deleteUsuarioServices
 }
