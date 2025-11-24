@@ -51,7 +51,7 @@ async function deleteUsuarioController(request, response) {
     const {id} = request.params;
 
     try {
-        const retorno = await produtoService.deleteUsuarioServices(id);
+        const retorno = await usuarioServices.deleteUsuarioServices(id);
         response.status(200).send({retorno});
     } catch(error) {
         response.status(400).send(error.message);

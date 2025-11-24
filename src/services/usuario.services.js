@@ -42,13 +42,13 @@ async function updateUsuarioServices(id, novoUsuario) {
 }
 
 async function deleteUsuarioServices(id) {
-    const produto = await produtoRepository.findUsuarioByIdRepository(id);
+    const usuario = await usuarioRepository.findUsuarioByIdRepository(id);
 
-    if (!produto) {
+    if (!usuario) {
         throw new Error("Produto não encontrado!");
     }
 
-    const mensagemRetorno =  await produtoRepository.deleteUsuarioRepository(id);
+    const mensagemRetorno =  await usuarioRepository.deleteUsuarioRepository(id);
 
     if (!mensagemRetorno) {
         throw new Error("Erro ao deletar produto!");
